@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "plotly.js": "^1.47.2",
+    "plotly.js-geo-dist": "^1.47.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-loader-spinner": "^2.3.0",
     "react-plotly.js": "^2.3.0",
+    "react-plotlyjs": "^0.4.4",
     "react-redux": "^7.0.2",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",

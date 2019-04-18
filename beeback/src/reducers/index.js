@@ -7,7 +7,16 @@ import {
     LOGIN_FAILURE,
     REGISTER_START,
     REGISTER_SUCCESS,
-    REGISTER_FAILURE
+    REGISTER_FAILURE,
+    CHARTDATA_START,
+    CHARTDATA_SUCCESS,
+   CHARTDATA_END,
+   UPDATE_START,
+   UPDATE_SUCCESS,
+   UPDATE_FAILURE,
+   DELETE_START,
+   DELETE_SUCCESS,
+   DELETE_FAILURE
 
     
 
@@ -18,15 +27,80 @@ const initialstate ={
     
         fetchingdata: false,
         dataAll: [],
+        data:[],
         loggingIn: false,
         isfetching:false,
-        error: null
+        error: null,
+        isupdated:false,
+        isdeleted:false,
       
 };
 
 export const rootReducer = (state = initialstate, action) =>{
     
     switch (action.type){
+        case UPDATE_START:
+        return{
+            ...state,
+            fetchingdata:true
+            
+            
+
+        }
+        case UPDATE_SUCCESS:
+        return{
+            ...state,
+            fetchingdata: false,
+            isupdated: true
+            
+        }
+        case UPDATE_FAILURE:
+        return{
+            ...state,
+            fetchingdata: false,
+            isupdated: false
+            
+        }
+        case DELETE_START:
+        return{
+            ...state,
+            fetchingdata:true,
+            isdeleted:false
+            
+        }
+        case DELETE_SUCCESS:
+        return{
+            ...state,
+            fetchingdata:false,
+            isdeleted:true
+            
+        }
+        case DELETE_FAILURE:
+        return{
+            ...state,
+            fetchingdata:false,
+            isdeleted:false
+            
+        }
+        case CHARTDATA_START:
+        return{
+            ...state,
+            err: '',
+            fetchingdata: true 
+        }
+        case CHARTDATA_SUCCESS:
+        return{
+            ...state,
+            err: '',
+            fetchingdata:false,
+            data:action.payload
+        }
+        case CHARTDATA_END:
+        return{
+            ...state,
+            err: 'oops',
+            fetchingdata:false
+        }
         case BEE_ALL_START: 
         return{
           ...state,
